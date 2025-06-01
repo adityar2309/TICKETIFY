@@ -6,7 +6,7 @@
 
 **A modern, full-stack movie ticket booking platform built with Flask and Vue.js**
 
-[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Netlify-00C7B7?style=for-the-badge)](https://incandescent-dasik-0c4363.netlify.app)
+[![Live Demo](https://img.shields.io/badge/🌐_Live_Demo-Netlify-00C7B7?style=for-the-badge)](https://ticketiify.netlify.app/)
 [![Backend API](https://img.shields.io/badge/🔗_API-Google_Cloud-4285F4?style=for-the-badge)](https://ticketify-backend-321805997355.us-central1.run.app)
 [![License](https://img.shields.io/badge/📄_License-MIT-green?style=for-the-badge)](LICENSE)
 
@@ -29,7 +29,7 @@ TICKETIFY is a comprehensive movie ticket booking platform that enables users to
 
 ## 🚀 Live Demo
 
-- **🌐 Frontend**: [https://incandescent-dasik-0c4363.netlify.app](https://incandescent-dasik-0c4363.netlify.app)
+- **🌐 Frontend**: [https://ticketiify.netlify.app/](https://ticketiify.netlify.app/)
 - **🔗 Backend API**: [https://ticketify-backend-321805997355.us-central1.run.app](https://ticketify-backend-321805997355.us-central1.run.app)
 
 ### 👤 Demo Credentials
