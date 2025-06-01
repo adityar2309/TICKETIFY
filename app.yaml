@@ -1,0 +1,22 @@
+runtime: python311
+
+service: backend
+
+env_variables:
+  REDIS_URL: "redis://10.0.0.3:6379/0"
+  DATABASE_URL: "sqlite:///site.db"
+  JWT_SECRET_KEY: "your-production-secret-key-here"
+
+automatic_scaling:
+  min_instances: 1
+  max_instances: 10
+  target_cpu_utilization: 0.6
+
+resources:
+  cpu: 1
+  memory_gb: 1
+  disk_size_gb: 10
+
+handlers:
+- url: /.*
+  script: auto 

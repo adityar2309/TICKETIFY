@@ -1,0 +1,56 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - redis_data:/data
+
+  backend:
+    build: ./backend
+    ports:
+      - "8080:8080"
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=sqlite:///site.db
+    depends_on:
+      - redis
+    volumes:
+      - ./backend/site.db:/app/site.db
+
+  celery-worker:
+    build: ./backend
+    command: celery -A app:celery_app worker -l info
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=sqlite:///site.db
+    depends_on:
+      - redis
+      - backend
+    volumes:
+      - ./backend/site.db:/app/site.db
+
+  celery-beat:
+    build: ./backend
+    command: celery -A app:celery_app beat -l info
+    environment:
+      - REDIS_URL=redis://redis:6379/0
+      - DATABASE_URL=sqlite:///site.db
+    depends_on:
+      - redis
+      - backend
+    volumes:
+      - ./backend/site.db:/app/site.db
+
+  frontend:
+    build: ./frontend-vite
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+volumes:
+  redis_data: 

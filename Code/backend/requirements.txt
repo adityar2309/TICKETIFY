@@ -6,5 +6,8 @@ Flask-Caching
 Werkzeug
 SQLAlchemy
 redis
-email
 eventlet
+gunicorn
+celery
+
+
